@@ -222,6 +222,10 @@ PrefabInstance:
       propertyPath: sceneManage
       value: 
       objectReference: {fileID: 1634398567}
+    - target: {fileID: 1892091423761718978, guid: b73d4b618ebe60f4f8b7c2b1322c92a6, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3970262810907753012, guid: b73d4b618ebe60f4f8b7c2b1322c92a6, type: 3}
       propertyPath: m_Name
       value: FadeCanvas
