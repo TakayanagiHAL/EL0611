@@ -31,6 +31,9 @@ public class Player : MonoBehaviour
 
     [SerializeField] GameObject[] targets = new GameObject[(int)ATTACKRANGE.MAX];
 
+    [SerializeField] GameObject[] attackRanges = new GameObject[(int)ATTACKRANGE.MAX];
+
+
     int cnt = 0;
 
 
@@ -40,6 +43,9 @@ public class Player : MonoBehaviour
     float attackAnimeCnt;
 
     int attackAnimeNum;
+
+    [SerializeField] float attackTime;
+    float attackTimeCnt = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -61,7 +67,11 @@ public class Player : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.LeftArrow)) TurnAround(DIRECTION.LEFT);
 
         //攻撃
-        Attack();
+        if (attackTime < attackTimeCnt)
+        {
+            Attack();
+        }
+        else attackTimeCnt += Time.deltaTime;
 
         AttackAnimation();
 
@@ -90,6 +100,7 @@ public class Player : MonoBehaviour
     {
 
         //上段
+        /*
         if (Input.GetKeyDown(KeyCode.Q))
         {
 
@@ -111,6 +122,36 @@ public class Player : MonoBehaviour
             else if (dir == DIRECTION.LEFT) EnemyBreak(targets[(int)ATTACKRANGE.LEFTDOWN]);
             attackAnimeNum = 3;
         }
+        */
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+
+            if (dir == DIRECTION.RIGHT) EnemyBreak2(ATTACKRANGE.RIGHTUP);
+            else if (dir == DIRECTION.LEFT) EnemyBreak2(ATTACKRANGE.LEFTUP);
+            attackAnimeNum = 1;
+            attackTimeCnt = 0;
+        }
+        //中段
+        else if (Input.GetKeyDown(KeyCode.A))
+        {
+            if (dir == DIRECTION.RIGHT) EnemyBreak2(ATTACKRANGE.RIGHTMIDDLE);
+            else if (dir == DIRECTION.LEFT) EnemyBreak2(ATTACKRANGE.LEFTMIDDLE);
+            attackAnimeNum = 2;
+            attackTimeCnt = 0;
+
+        }
+        //下段
+        else if (Input.GetKeyDown(KeyCode.Z))
+        {
+            if (dir == DIRECTION.RIGHT) EnemyBreak2(ATTACKRANGE.RIGHTDOWN);
+            else if (dir == DIRECTION.LEFT) EnemyBreak2(ATTACKRANGE.LEFTDOWN);
+            attackAnimeNum = 3;
+            attackTimeCnt = 0;
+
+        }
+
+
+
 
     }
 
@@ -120,7 +161,9 @@ public class Player : MonoBehaviour
         attackAnimeCnt += Time.deltaTime;
         if (attackAnimeCnt < attackAnimeTime)
         {
-            animator.SetTrigger("Attack" + attackAnimeNum);
+            //animator.SetTrigger("Attack" + attackAnimeNum);
+            animator.SetTrigger("Attack");
+
         }
         /*
         if (attackAnimeCnt < attackAnimeTime / 5)
@@ -161,6 +204,17 @@ public class Player : MonoBehaviour
         //仮
         Destroy(s_target);
 
+
+        //アニメーション再生
+        attackAnimeCnt = 0;
+
+    }
+
+
+    void EnemyBreak2(ATTACKRANGE arg)
+    {
+
+        attackRanges[(int)arg].GetComponent<PlayerAttackRange>().attackFlag = true;
 
         //アニメーション再生
         attackAnimeCnt = 0;
