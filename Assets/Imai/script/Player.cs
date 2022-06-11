@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
     DIRECTION dir;
     [SerializeField] DIRECTION defaultDir;
 
-    [SerializeField] int life;
+    public int life;
     [SerializeField] int attack;
 
     [SerializeField] GameObject[] targets = new GameObject[(int)ATTACKRANGE.MAX];
@@ -136,7 +136,7 @@ public class Player : MonoBehaviour
             attackAnimeNum = 1;
             attackTimeCnt = 0;
             //アニメーション再生
-            attackAnimeCnt = 0;
+            attackAnimeCnt = 0.1f;
         }
         //中段
         else if (Input.GetKeyDown(KeyCode.A))
@@ -146,7 +146,7 @@ public class Player : MonoBehaviour
             attackAnimeNum = 2;
             attackTimeCnt = 0;
             //アニメーション再生
-            attackAnimeCnt = 0;
+            attackAnimeCnt = 0.1f;
 
         }
         //下段
@@ -157,7 +157,7 @@ public class Player : MonoBehaviour
             attackAnimeNum = 3;
             attackTimeCnt = 0;
             //アニメーション再生
-            attackAnimeCnt = 0;
+            attackAnimeCnt = 0.1f;
 
         }
 
