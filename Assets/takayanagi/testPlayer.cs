@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class testPlayer : MonoBehaviour
 {
+    [SerializeField] FadeManager FadeManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +38,11 @@ public class testPlayer : MonoBehaviour
             SoundManager.instance.PlaySE("ƒqƒbƒg");
         }
 
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            FadeManager.StartFade();
+            Debug.Log("FadeStart");
+        }
 
     }
 }
