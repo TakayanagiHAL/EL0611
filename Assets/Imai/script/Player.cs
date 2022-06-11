@@ -62,6 +62,8 @@ public class Player : MonoBehaviour
     void Update()
     {
 
+        if (life <= 0) return;
+
         //向き決定
         if (Input.GetKeyDown(KeyCode.RightArrow)) TurnAround(DIRECTION.RIGHT);
         else if (Input.GetKeyDown(KeyCode.LeftArrow)) TurnAround(DIRECTION.LEFT);
@@ -130,6 +132,8 @@ public class Player : MonoBehaviour
             else if (dir == DIRECTION.LEFT) EnemyBreak2(ATTACKRANGE.LEFTUP);
             attackAnimeNum = 1;
             attackTimeCnt = 0;
+            //アニメーション再生
+            attackAnimeCnt = 0;
         }
         //中段
         else if (Input.GetKeyDown(KeyCode.A))
@@ -138,6 +142,8 @@ public class Player : MonoBehaviour
             else if (dir == DIRECTION.LEFT) EnemyBreak2(ATTACKRANGE.LEFTMIDDLE);
             attackAnimeNum = 2;
             attackTimeCnt = 0;
+            //アニメーション再生
+            attackAnimeCnt = 0;
 
         }
         //下段
@@ -147,6 +153,8 @@ public class Player : MonoBehaviour
             else if (dir == DIRECTION.LEFT) EnemyBreak2(ATTACKRANGE.LEFTDOWN);
             attackAnimeNum = 3;
             attackTimeCnt = 0;
+            //アニメーション再生
+            attackAnimeCnt = 0;
 
         }
 
@@ -158,11 +166,14 @@ public class Player : MonoBehaviour
     void AttackAnimation()
     {
 
+        Debug.Log(attackAnimeCnt);
+
         attackAnimeCnt += Time.deltaTime;
         if (attackAnimeCnt < attackAnimeTime)
         {
-            //animator.SetTrigger("Attack" + attackAnimeNum);
-            animator.SetTrigger("Attack");
+            if(attackAnimeNum != 3) animator.SetTrigger("Attack" + attackAnimeNum);
+            else animator.SetTrigger("Roll");
+            //animator.SetTrigger("Attack");
 
         }
         /*
@@ -187,7 +198,8 @@ public class Player : MonoBehaviour
 
         life -= s_damage;
 
-        animator.SetTrigger("Hurt");
+        if(life > 0) animator.SetTrigger("Hurt");
+        else animator.SetTrigger("Death");
     }
 
     public void SetTarget(ATTACKRANGE arg,GameObject s_target)
@@ -216,8 +228,7 @@ public class Player : MonoBehaviour
 
         attackRanges[(int)arg].GetComponent<PlayerAttackRange>().attackFlag = true;
 
-        //アニメーション再生
-        attackAnimeCnt = 0;
+
 
     }
 
@@ -237,13 +248,27 @@ public class Player : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+
+    //    //仮
+    //    Damage(1);
+
+    //    EnemyBreak(collision.gameObject);
+
+    //}
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
 
-        //仮
-        Damage(1);
+        if (collision.tag == "Enemy") {
+            //仮
+            Damage(1);
 
-        EnemyBreak(collision.gameObject);
+            //EnemyBreak(collision.gameObject);
+            Destroy(collision.gameObject);
+
+        }
 
     }
 
