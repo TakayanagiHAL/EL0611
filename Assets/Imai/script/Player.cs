@@ -47,6 +47,11 @@ public class Player : MonoBehaviour
     [SerializeField] float attackTime;
     float attackTimeCnt = 0;
 
+
+    [SerializeField]
+    private GameObject fadeManager;
+    FadeManager fadeManagerScript;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,6 +60,8 @@ public class Player : MonoBehaviour
         animator = GetComponent<Animator>();
 
         attackAnimeCnt = attackAnimeTime;
+
+        fadeManagerScript = fadeManager.GetComponent<FadeManager>();
 
     }
 
@@ -210,8 +217,15 @@ public class Player : MonoBehaviour
 
         life -= s_damage;
 
-        if(life > 0) animator.SetTrigger("Hurt");
-        else animator.SetTrigger("Death");
+        if (life > 0)
+        {
+            animator.SetTrigger("Hurt");
+        }
+        else
+        {
+            fadeManagerScript.StartFade();
+            animator.SetTrigger("Death");
+        }
 
         SoundManager.instance.PlaySE("É_ÉÅÅ[ÉW2");
     }

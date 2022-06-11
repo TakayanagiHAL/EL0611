@@ -6,7 +6,9 @@ public class HPDraw : MonoBehaviour
 {
     [SerializeField]
     GameObject[] Heart = new GameObject[5];
-
+    [SerializeField]
+    GameObject m_Player;
+    Player m_PlayerScript;
     int a = 5;
 
     void Start()
@@ -15,11 +17,13 @@ public class HPDraw : MonoBehaviour
         {
             Heart[i].SetActive(true);
         }
+
+        m_PlayerScript = m_Player.GetComponent<Player>();
     }
     // Update is called once per frame
     void Update()
     {
-        switch (a)
+        switch (m_PlayerScript.life)
         {
             case 4:
                 Heart[4].SetActive(false);

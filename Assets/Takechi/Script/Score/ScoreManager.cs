@@ -66,6 +66,7 @@ public class ScoreManager : MonoBehaviour
             // スコアのセーブ
             SaveScore();
             judge = true;
+            g_MaxScore = g_CurrentScore;
         }
 
         return judge;

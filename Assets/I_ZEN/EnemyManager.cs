@@ -51,8 +51,8 @@ public class EnemyManager : MonoBehaviour
         m_Speed += m_Accelerate * Time.deltaTime;
         if (Time.time - m_SpawnTime > m_SpawnInterval)
         {
-            int index = Random.Range(0, 5);
-            int type = (index % 3) != 2 ? (index % 3) : Random.Range(2, 3);
+            int index = Random.Range(0, 6);
+            int type = (index % 3) != 2 ? (index % 3) : Random.Range(2, 4);
             GameObject enemy = GameObject.Instantiate(m_SpawnEnemy, index > 2 ? m_RightSpawnPosition[index - 3] : m_LeftSpawnPosition[index], Quaternion.identity);
             enemy.GetComponent<Enemy>().Init(type, index < 3, m_EnemySpeed[type] * m_Speed, m_EnemyLife[type], m_EnemyScore[type],m_EnemyAttack[type]);
 
