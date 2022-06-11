@@ -25,7 +25,9 @@ public class PlayerAttackRange : MonoBehaviour
         {
             //player.SetTarget(atrg, collision.gameObject);
 
-            Destroy(collision.gameObject);
+            collision.GetComponent<Enemy>().EnemyHit();
+
+            //Destroy(collision.gameObject);
 
         }
 

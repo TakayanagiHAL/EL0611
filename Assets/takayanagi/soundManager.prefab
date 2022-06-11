@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4326034703580862212
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3647562115770735458}
+  - component: {fileID: 703770733884215979}
+  m_Layer: 0
+  m_Name: soundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3647562115770735458
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4326034703580862212}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &703770733884215979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4326034703580862212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c135610aec2c35e41b164f030a751d6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BGM_Datas:
+  - BGM_Name: "\u30B2\u30FC\u30E0"
+    BGM_Clip: {fileID: 8300000, guid: 59c328806b45de94eabc7eea41e8cf7a, type: 3}
+    Volume: 1
+  SE_Datas:
+  - SE_Name: "\u6C7A\u5B9A"
+    SE_Clip: {fileID: 8300000, guid: 9f7a438bed8be4742988e91d6638c731, type: 3}
+    Volume: 1
+  - SE_Name: "\u9078\u629E"
+    SE_Clip: {fileID: 8300000, guid: 4dc3e4dee86802443be6a925bc7a0888, type: 3}
+    Volume: 1
+  - SE_Name: "\u653B\u6483"
+    SE_Clip: {fileID: 8300000, guid: e06c590ad72132549b7128440f7fb319, type: 3}
+    Volume: 1
+  - SE_Name: "\u30C0\u30E1\u30FC\u30B8"
+    SE_Clip: {fileID: 8300000, guid: 6817917e0448d5f44a8258b6b30c3584, type: 3}
+    Volume: 1
+  - SE_Name: "\u30DF\u30B9"
+    SE_Clip: {fileID: 8300000, guid: 72b52c366bdcd1d4e88ac31c63d662ba, type: 3}
+    Volume: 1
+  BGM_Volume: 0.1
+  SE_Volume: 0.1
+  Mute: 0

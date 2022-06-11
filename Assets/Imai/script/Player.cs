@@ -73,7 +73,10 @@ public class Player : MonoBehaviour
         {
             Attack();
         }
-        else attackTimeCnt += Time.deltaTime;
+        else
+        {
+            attackTimeCnt += Time.deltaTime;
+        }
 
         AttackAnimation();
 
@@ -174,7 +177,7 @@ public class Player : MonoBehaviour
             if(attackAnimeNum != 3) animator.SetTrigger("Attack" + attackAnimeNum);
             else animator.SetTrigger("Roll");
             //animator.SetTrigger("Attack");
-
+            if (attackAnimeCnt > attackTime / 2) AttackEnd();
         }
         /*
         if (attackAnimeCnt < attackAnimeTime / 5)
@@ -191,6 +194,16 @@ public class Player : MonoBehaviour
         }
         */
         //Debug.Log(attackAnimeCnt);
+    }
+
+    void AttackEnd()
+    {
+
+        for (int i=0;i<6;i++)
+        {
+            attackRanges[i].GetComponent<PlayerAttackRange>().attackFlag = false;
+        }
+
     }
 
     void Damage(int s_damage)
@@ -263,7 +276,7 @@ public class Player : MonoBehaviour
 
         if (collision.tag == "Enemy") {
             //‰¼
-            Damage(1);
+            Damage(collision.GetComponent<Enemy>().GetAttack());
 
             //EnemyBreak(collision.gameObject);
             Destroy(collision.gameObject);
