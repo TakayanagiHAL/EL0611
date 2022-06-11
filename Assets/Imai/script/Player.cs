@@ -33,11 +33,23 @@ public class Player : MonoBehaviour
 
     int cnt = 0;
 
+
+    Animator animator;
+
+    [SerializeField] float attackAnimeTime;
+    float attackAnimeCnt;
+
+    int attackAnimeNum;
+
     // Start is called before the first frame update
     void Start()
     {
         dir = defaultDir;
-        
+
+        animator = GetComponent<Animator>();
+
+        attackAnimeCnt = attackAnimeTime;
+
     }
 
     // Update is called once per frame
@@ -51,6 +63,7 @@ public class Player : MonoBehaviour
         //攻撃
         Attack();
 
+        AttackAnimation();
 
         //TargetReset();
     }
@@ -82,26 +95,56 @@ public class Player : MonoBehaviour
 
             if (dir == DIRECTION.RIGHT) EnemyBreak(targets[(int)ATTACKRANGE.RIGHTUP]);
             else if (dir == DIRECTION.LEFT) EnemyBreak(targets[(int)ATTACKRANGE.LEFTUP]);
+            attackAnimeNum = 1;
         }
         //中段
         else if (Input.GetKeyDown(KeyCode.A))
         {
             if (dir == DIRECTION.RIGHT) EnemyBreak(targets[(int)ATTACKRANGE.RIGHTMIDDLE]);
             else if (dir == DIRECTION.LEFT) EnemyBreak(targets[(int)ATTACKRANGE.LEFTMIDDLE]);
+            attackAnimeNum = 2;
         }
         //下段
         else if (Input.GetKeyDown(KeyCode.Z))
         {
             if (dir == DIRECTION.RIGHT) EnemyBreak(targets[(int)ATTACKRANGE.RIGHTDOWN]);
             else if (dir == DIRECTION.LEFT) EnemyBreak(targets[(int)ATTACKRANGE.LEFTDOWN]);
+            attackAnimeNum = 3;
         }
 
+    }
+
+    void AttackAnimation()
+    {
+
+        attackAnimeCnt += Time.deltaTime;
+        if (attackAnimeCnt < attackAnimeTime)
+        {
+            animator.SetTrigger("Attack" + attackAnimeNum);
+        }
+        /*
+        if (attackAnimeCnt < attackAnimeTime / 5)
+        {
+            animator.SetTrigger("Attack3");
+        }
+        else if (attackAnimeCnt < attackAnimeTime * 2 / 5)
+        {
+            animator.SetTrigger("Attack3");
+        }
+        else if (attackAnimeCnt < attackAnimeTime * 5 / 5)
+        {
+            animator.SetTrigger("Attack3");
+        }
+        */
+        //Debug.Log(attackAnimeCnt);
     }
 
     void Damage(int s_damage)
     {
 
         life -= s_damage;
+
+        animator.SetTrigger("Hurt");
     }
 
     public void SetTarget(ATTACKRANGE arg,GameObject s_target)
@@ -117,6 +160,10 @@ public class Player : MonoBehaviour
 
         //仮
         Destroy(s_target);
+
+
+        //アニメーション再生
+        attackAnimeCnt = 0;
 
     }
 
