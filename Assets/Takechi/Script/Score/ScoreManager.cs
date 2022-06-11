@@ -10,6 +10,12 @@ public class ScoreManager : MonoBehaviour
     // 現在のスコア
     public static int g_CurrentScore = 0;
 
+    [RuntimeInitializeOnLoadMethod]
+    static void Initialize()
+    {
+        LoadScore();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -57,9 +63,25 @@ public class ScoreManager : MonoBehaviour
         // スコアを更新していたらフラグを立てる
         if(g_CurrentScore > g_MaxScore)
         {
+            // スコアのセーブ
+            SaveScore();
             judge = true;
         }
 
         return judge;
+    }
+
+    // スコアのセーブ
+    public static void SaveScore()
+    {
+        // スコアを保存
+        PlayerPrefs.SetInt("MAXSCORE", g_MaxScore);
+        PlayerPrefs.Save();
+    }
+
+    public static void LoadScore()
+    {
+        // スコアのロード
+        g_CurrentScore = PlayerPrefs.GetInt("MAXSCORE", 0);
     }
 }

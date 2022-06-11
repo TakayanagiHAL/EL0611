@@ -1,12 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI; //UI機能を扱うときに追記する
 
-public class ScoreDraw : MonoBehaviour
+public class HPManager : MonoBehaviour
 {
     [SerializeField]
-    private Text ScoreText; //得点の文字の変数
+    private int HP;
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +16,18 @@ public class ScoreDraw : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ScoreText.text = "Score:" + ScoreManager.GetCurrentScore().ToString();
+        
+    }
+
+    // HP取得
+    public int GetHP()
+    {
+        return HP;
+    }
+
+    // HP減少
+    public void DecreaseHP(int decreaseNum)
+    {
+        HP -= decreaseNum;
     }
 }
