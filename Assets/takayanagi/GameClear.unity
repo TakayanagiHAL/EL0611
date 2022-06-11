@@ -1430,6 +1430,10 @@ PrefabInstance:
       propertyPath: m_RenderMode
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7586479508802259436, guid: b73d4b618ebe60f4f8b7c2b1322c92a6, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8444961154121047774, guid: b73d4b618ebe60f4f8b7c2b1322c92a6, type: 3}
       propertyPath: m_UiScaleMode
       value: 1
