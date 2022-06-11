@@ -169,8 +169,6 @@ public class Player : MonoBehaviour
     void AttackAnimation()
     {
 
-        Debug.Log(attackAnimeCnt);
-
         attackAnimeCnt += Time.deltaTime;
         if (attackAnimeCnt < attackAnimeTime)
         {
@@ -202,6 +200,7 @@ public class Player : MonoBehaviour
         for (int i=0;i<6;i++)
         {
             attackRanges[i].GetComponent<PlayerAttackRange>().attackFlag = false;
+            attackRanges[i].GetComponent<PlayerAttackRange>().timer = 0;
         }
 
     }
@@ -213,6 +212,8 @@ public class Player : MonoBehaviour
 
         if(life > 0) animator.SetTrigger("Hurt");
         else animator.SetTrigger("Death");
+
+        SoundManager.instance.PlaySE("É_ÉÅÅ[ÉW2");
     }
 
     public void SetTarget(ATTACKRANGE arg,GameObject s_target)

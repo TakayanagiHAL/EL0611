@@ -33,27 +33,36 @@ public class EnemyManager : MonoBehaviour
     [SerializeField]
     private float m_SpawnInterval;
 
+    private float m_TotalTime;
+
     private float m_SpawnTime;
     // Start is called before the first frame update
     void Start()
     {
         m_SpawnTime = Time.time;
-
+        m_TotalTime = 0;
         m_Speed = m_BaseEnemySpeed;
     }
 
     // Update is called once per frame
     void Update()
     {
+        m_TotalTime += Time.deltaTime;
         m_Speed += m_Accelerate * Time.deltaTime;
         if (Time.time - m_SpawnTime > m_SpawnInterval)
         {
             int index = Random.Range(0, 5);
             int type = (index % 3) != 2 ? (index % 3) : Random.Range(2, 3);
             GameObject enemy = GameObject.Instantiate(m_SpawnEnemy, index > 2 ? m_RightSpawnPosition[index - 3] : m_LeftSpawnPosition[index], Quaternion.identity);
-            enemy.GetComponent<Enemy>().Init(type, index < 3, m_EnemySpeed[type] * m_Speed, m_EnemyLife[type], m_EnemyAttack[type]);
+            enemy.GetComponent<Enemy>().Init(type, index < 3, m_EnemySpeed[type] * m_Speed, m_EnemyLife[type], m_EnemyScore[type],m_EnemyAttack[type]);
 
             m_SpawnTime = Time.time;
+        }
+
+        if(m_TotalTime > 10.0f)
+        {
+            m_TotalTime = 0.0f;
+            m_SpawnInterval *= 0.8f;
         }
         
     }

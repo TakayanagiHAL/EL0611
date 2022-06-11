@@ -9,17 +9,30 @@ public class PlayerAttackRange : MonoBehaviour
     [SerializeField] Player.ATTACKRANGE atrg;
 
     public bool attackFlag;
+    float waitTime = 0.1f;
+    public float timer = 0;
 
     private void Update()
     {
-        
+        //Debug.Log("t " + timer);
+        //attackFlag‚ª“K—p‚³‚ê‚Ä‚©‚ç­‚µ‚½‚Á‚ÄUŒ‚
+        if (attackFlag) {
+            timer += Time.deltaTime;
+            Debug.Log("t " + timer);
+        }
     }
 
 
     private void OnTriggerStay2D(Collider2D collision)
     {
 
+        //Debug.Log(timer);
+
         if (!attackFlag) return;
+
+        timer += Time.deltaTime;
+
+        if (timer <= waitTime) return;
 
         if (collision.tag == "Enemy")
         {
@@ -29,7 +42,10 @@ public class PlayerAttackRange : MonoBehaviour
 
             //Destroy(collision.gameObject);
 
+            SoundManager.instance.PlaySE("a‚é");
+
         }
+
 
     }
 
