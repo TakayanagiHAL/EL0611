@@ -49,15 +49,14 @@ public class SoundManager : MonoBehaviour
     void Awake()
     {
         //シングルトン＆シーン遷移しても破棄されない
-        if (instance == null)
+        if (instance != null)
         {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
+            Destroy(this);
+            return;
         }
-        else
-        {
-            Destroy(gameObject);
-        }
+
+        instance = this;
+        DontDestroyOnLoad(gameObject);
 
         //BGM用AudioSource
         BGM_Source[0] = gameObject.AddComponent<AudioSource>();
