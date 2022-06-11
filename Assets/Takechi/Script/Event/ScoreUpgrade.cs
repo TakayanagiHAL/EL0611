@@ -44,7 +44,7 @@ public class ScoreUpgrade : MonoBehaviour
             }
         }
 
-        if(Input.GetKey(KeyCode.Space))
+        if(Input.GetKey(KeyCode.A))
         {
             PopUp();
         }
