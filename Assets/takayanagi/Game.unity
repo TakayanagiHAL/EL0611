@@ -123,6 +123,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+<<<<<<< HEAD
 --- !u!1 &341026798
 GameObject:
   m_ObjectHideFlags: 0
@@ -207,6 +208,8 @@ Transform:
   m_Father: {fileID: 1270185560}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+=======
+>>>>>>> imai
 --- !u!1001 &443800473
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -264,6 +267,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc255ba1e317b454baf0d8919195f08a, type: 3}
+<<<<<<< HEAD
 --- !u!1 &517576879
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,6 +352,8 @@ Transform:
   m_Father: {fileID: 1270185560}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+=======
+>>>>>>> imai
 --- !u!1001 &677981716
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -409,6 +415,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01861311d7a882f489d6099e6c8c6ef7, type: 3}
+<<<<<<< HEAD
 --- !u!1 &775285893
 GameObject:
   m_ObjectHideFlags: 0
@@ -658,6 +665,8 @@ Transform:
   m_Father: {fileID: 1270185560}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+=======
+>>>>>>> imai
 --- !u!1 &1386534357
 GameObject:
   m_ObjectHideFlags: 0
@@ -742,6 +751,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!1 &1636221605
 GameObject:
   m_ObjectHideFlags: 0
@@ -1138,6 +1148,8 @@ Transform:
   m_Father: {fileID: 1270185560}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+=======
+>>>>>>> imai
 --- !u!1001 &1698393728
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1199,6 +1211,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01861311d7a882f489d6099e6c8c6ef7, type: 3}
+<<<<<<< HEAD
 --- !u!1 &1829047923
 GameObject:
   m_ObjectHideFlags: 0
@@ -1249,3 +1262,5 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+=======
+>>>>>>> imai
