@@ -45,22 +45,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BGM_Datas:
-  - BGM_Name: 
-    BGM_Clip: {fileID: 0}
-    Volume: 0
-  - BGM_Name: 
-    BGM_Clip: {fileID: 0}
-    Volume: 0
-  - BGM_Name: 
-    BGM_Clip: {fileID: 0}
-    Volume: 0
+  - BGM_Name: "\u30B2\u30FC\u30E0"
+    BGM_Clip: {fileID: 8300000, guid: 59c328806b45de94eabc7eea41e8cf7a, type: 3}
+    Volume: 1
   SE_Datas:
-  - SE_Name: 
-    SE_Clip: {fileID: 0}
-    Volume: 0
-  - SE_Name: 
-    SE_Clip: {fileID: 0}
-    Volume: 0
+  - SE_Name: "\u6C7A\u5B9A"
+    SE_Clip: {fileID: 8300000, guid: 9f7a438bed8be4742988e91d6638c731, type: 3}
+    Volume: 1
+  - SE_Name: "\u9078\u629E"
+    SE_Clip: {fileID: 8300000, guid: 4dc3e4dee86802443be6a925bc7a0888, type: 3}
+    Volume: 1
+  - SE_Name: "\u653B\u6483"
+    SE_Clip: {fileID: 8300000, guid: e06c590ad72132549b7128440f7fb319, type: 3}
+    Volume: 1
+  - SE_Name: "\u30C0\u30E1\u30FC\u30B8"
+    SE_Clip: {fileID: 8300000, guid: 6817917e0448d5f44a8258b6b30c3584, type: 3}
+    Volume: 1
+  - SE_Name: "\u30DF\u30B9"
+    SE_Clip: {fileID: 8300000, guid: 72b52c366bdcd1d4e88ac31c63d662ba, type: 3}
+    Volume: 1
   BGM_Volume: 0.1
   SE_Volume: 0.1
   Mute: 0
